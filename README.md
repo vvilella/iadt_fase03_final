@@ -8,10 +8,10 @@ Treinar (fine-tuning) um modelo de linguagem para **gerar a descrição** de um 
 - PDF com links do vídeo e do repositório.
 
 ## Estrutura
-data/ # (não versionar arquivo grande)
-notebooks/ # EDA, preparação, treino, avaliação
-src/ # scripts (data_prep.py, train_t5.py, infer.py, app_gradio.py)
-docs/ # PDF final com links
+- data/ # (não vou versionar, pois o arquivo é muito grande)
+- notebooks/ # EDA, preparação, treino, avaliação
+- src/ # scripts (data_prep.py, train_t5.py, infer.py, app_gradio.py)
+- docs/ # PDF final com links
 
 markdown
 Copy code
