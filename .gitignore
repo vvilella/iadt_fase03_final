@@ -1,0 +1,21 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+
+# jupyter
+.ipynb_checkpoints/
+
+# dados e artefatos pesados
+data/*
+!data/.gitkeep
+artifacts/
+outputs/
+logs/
+
+# sistemas
+.DS_Store
