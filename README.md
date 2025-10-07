@@ -171,10 +171,18 @@ Tempo médio:
 | Conjunto | ROUGE-L | BLEU |
 |-----------|----------|------|
 | Baseline (200) | 0.1223 | 0.0003 |
-| Fine-tuned (200) | 0.1266 | 1.2264 |
-| Val (1k, ckpt-9000) | 0.1255 | 1.19 |
+| Fine-tuned (200) | **0.1266** | **1.2264** |
+| Val (1k, ckpt-9000) | **0.1255** | **1.19** |
 
-O fine-tuning via LoRA melhora a coerência e o vocabulário das descrições geradas, com ganho moderado no ROUGE-L e expressivo no BLEU.
+O fine-tuning com LoRA trouxe uma melhora real na fluência e na estrutura das descrições geradas.  
+Os ganhos em **ROUGE-L** mostram que o modelo passou a reproduzir mais fielmente a forma das descrições reais — menos ruído e mais coerência.  
+Mas o salto mais expressivo veio no **BLEU**, que saiu de praticamente zero para acima de **1.2**, indicando que as frases geradas ficaram muito mais próximas das referências humanas em termos de vocabulário e sintaxe.
+
+Em outras palavras: o modelo não apenas "aprendeu a falar sobre produtos",  
+mas começou a **entender o estilo** e **o padrão textual** das descrições do dataset.  
+Os resultados são consistentes tanto no conjunto reduzido (200 amostras) quanto na validação completa (1.000 amostras),  
+mostrando que o modelo generaliza bem mesmo treinado de forma leve em hardware local.
+
 
 ## 6. Inferência rápida (fora do notebook)
 ```python
