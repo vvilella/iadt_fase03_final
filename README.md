@@ -137,13 +137,19 @@ artifacts/t5_lora_best/
   - Penalidade de repetição
   - Sem repetição de n-gramas
 
+#### 5. `05_quick_test.ipynb`
+- Notebook de uso rápido, com o teste de inferência citado nesse readme
+
+#### 6. `06_compare_checkpoints.ipynb`
+- Notebook de comparação de treinamentos, um realizado com epoch=2 e outro com epoch=3, consideração no final do readme
+
 Exemplo de uso:
 ```python
 Title: GoFit Weightlifting Glove
 Description: GoFit weightlifting gloves provide grip and protection for heavy lifting, designed for comfort and durability.
 
-Title: GoFit Weightlifting Glove
-Description: GoFit weightlifting gloves provide grip and protection for heavy lifting, designed for comfort and durability.
+Title: Samsung Galaxy SmartTag2
+Description: Samsung Galaxy SmartTag2 is a wireless charging adapter that can be used to charge your smartphone or tablet. It is made of high-quality materials and has a slim design. This smart tag features a magnetic clip that clips into the back of the phone. The case is easy to use and secure.
 ```
 
 ## 4. Observações de performance (Apple M-series)
@@ -189,7 +195,7 @@ out = model.generate(**enc, max_new_tokens=224, num_beams=2, repetition_penalty=
 print(tok.decode(out[0], skip_special_tokens=True))
 
 ```
-## 6. Comparativo de Checkpoints — Explorando diferentes estágios do treino
+## 7. Comparativo de Checkpoints — Explorando diferentes estágios do treino
 
 Durante o fine-tuning, cada época representa uma passagem completa pelos exemplos de treino.  
 A quantidade de passos (“steps”) que o modelo executa depende diretamente disso:  
