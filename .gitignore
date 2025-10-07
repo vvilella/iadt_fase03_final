@@ -18,4 +18,5 @@ outputs/
 logs/
 
 # sistemas
-.DS_Storepip install ijson tqdm
+.DS_Store
+
