@@ -187,9 +187,34 @@ prompt = f"Given a product title, generate its product description.\nTitle: {tit
 enc = tok(prompt, return_tensors="pt", truncation=True, max_length=128).to(device)
 out = model.generate(**enc, max_new_tokens=224, num_beams=2, repetition_penalty=1.8, no_repeat_ngram_size=3, temperature=0.9, top_p=0.9, do_sample=True)
 print(tok.decode(out[0], skip_special_tokens=True))
-```
 
-## 7. Créditos
+```
+## 6. Comparativo de Checkpoints — Explorando diferentes estágios do treino
+
+Durante o fine-tuning, cada época representa uma passagem completa pelos exemplos de treino.  
+A quantidade de passos (“steps”) que o modelo executa depende diretamente disso:  
+com duas épocas, ele vê cada exemplo duas vezes; com três, ele tem uma exposição 50% maior aos mesmos dados.  
+
+Nos meus experimentos, o checkpoint **6064** correspondeu a **2 épocas completas**, e o checkpoint **9000** a **3 épocas**.  
+Essa diferença foi o suficiente para gerar **um salto real de qualidade**:
+
+| Épocas | Checkpoint | ROUGE-L | BLEU |
+|--------|-------------|---------|------|
+| 2 | 6064 | 0.1117 | 0.9039 |
+| 3 | 9000 | **0.1266** | **1.2264** |
+
+Mais uma época de treino fez o modelo continuar aprendendo padrões de linguagem sem cair em overfitting.  
+As descrições ficaram mais completas, o vocabulário mais natural e o texto mais coeso.  
+
+Em setups leves como este (LoRA + MPS + batch efetivo pequeno), uma época a mais **muda muito** o estágio de aprendizado,  
+porque cada passada adicional pelo dataset refina as representações de texto.  
+
+No fim, **três épocas** se mostraram o ponto de melhor equilíbrio entre aprendizado e generalização —  
+o modelo amadureceu, mas continuou leve e estável. 
+
+O **modelo final** usado no playground foi o checkpoint 9000, salvo em `artifacts/t5_lora_best/`.
+
+## 8. Créditos
 
 Desenvolvido por **Victor Nardi Vilella**  
 MBA – IA para Devs – Fase 03 (Tech Challenge)
