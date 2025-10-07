@@ -1,6 +1,9 @@
 # Tech Challenge – Fase 03 
 Fine-tuning do modelo FLAN-T5 com LoRA
 
+Desenvolvido por **Victor Nardi Vilella**  
+MBA – IA para Devs – Fase 03 (Tech Challenge)
+
 ## 1. Descrição geral
 
 Este projeto implementa o fine-tuning do modelo **FLAN-T5-base** para a tarefa de geração de descrições de produtos a partir de seus títulos.
@@ -178,8 +181,9 @@ O fine-tuning com LoRA trouxe uma melhora real na fluência e na estrutura das d
 Os ganhos em **ROUGE-L** mostram que o modelo passou a reproduzir mais fielmente a forma das descrições reais — menos ruído e mais coerência.  
 Mas o salto mais expressivo veio no **BLEU**, que saiu de praticamente zero para acima de **1.2**, indicando que as frases geradas ficaram muito mais próximas das referências humanas em termos de vocabulário e sintaxe.
 
-Em outras palavras: o modelo não apenas "aprendeu a falar sobre produtos",  
-mas começou a **entender o estilo** e **o padrão textual** das descrições do dataset.  
+Em resumo: o modelo não apenas "aprendeu a falar sobre produtos",  
+mas começou a **entender o estilo** e **o padrão textual** das descrições do dataset.
+
 Os resultados são consistentes tanto no conjunto reduzido (200 amostras) quanto na validação completa (1.000 amostras),  
 mostrando que o modelo generaliza bem mesmo treinado de forma leve em hardware local.
 
@@ -228,7 +232,5 @@ o modelo amadureceu, mas continuou leve e estável.
 
 O **modelo final** usado no playground foi o checkpoint 9000, salvo em `artifacts/t5_lora_best/`.
 
-## 8. Créditos
 
-Desenvolvido por **Victor Nardi Vilella**  
-MBA – IA para Devs – Fase 03 (Tech Challenge)
+
