@@ -141,6 +141,9 @@ Exemplo de uso:
 ```python
 Title: GoFit Weightlifting Glove
 Description: GoFit weightlifting gloves provide grip and protection for heavy lifting, designed for comfort and durability.
+
+Title: GoFit Weightlifting Glove
+Description: GoFit weightlifting gloves provide grip and protection for heavy lifting, designed for comfort and durability.
 ```
 
 ## 4. Observações de performance (Apple M-series)
@@ -179,7 +182,7 @@ tok = AutoTokenizer.from_pretrained(MODEL_NAME)
 base = AutoModelForSeq2SeqLM.from_pretrained(MODEL_NAME).to(device)
 model = PeftModel.from_pretrained(base, "artifacts/t5_lora_best").to(device)
 
-title = "GoFit Weightlifting Glove"
+title = "Nespresso Vertuo Next Coffee Machine"
 prompt = f"Given a product title, generate its product description.\nTitle: {title}\nDescription:"
 enc = tok(prompt, return_tensors="pt", truncation=True, max_length=128).to(device)
 out = model.generate(**enc, max_new_tokens=224, num_beams=2, repetition_penalty=1.8, no_repeat_ngram_size=3, temperature=0.9, top_p=0.9, do_sample=True)
